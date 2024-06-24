@@ -5,7 +5,7 @@ on:
     branches: [ "main" ]
 
 jobs:
-  docker:
+  docker-in-dockerhub:
     runs-on: ubuntu-latest
     steps:
       -
@@ -27,3 +27,20 @@ jobs:
         with:
           push: true
           tags: thatyolanda/test:latest
+  docker-in-github:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 'Checkout GitHub Action'
+        uses: actions/checkout@main
+
+      - name: 'Login to GitHub Container Registry'
+        uses: docker/login-action@v1
+        with:
+          registry: ghcr.io
+          username: ${{github.actor}}
+          password: ${{secrets.GITHUB_TOKEN}}
+
+      - name: 'Build Inventory Image'
+        run: |
+          docker build . --tag ghcr.io/thatyolandawang/sampleproject:latest
+          docker push ghcr.io/thatyolandawang/sampleproject:latest
