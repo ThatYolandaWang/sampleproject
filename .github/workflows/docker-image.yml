@@ -2,6 +2,14 @@ name: Docker Image CI For [thatyolanda/test:latest]
 
 on:
   workflow_dispatch:
+    inputs:
+      logLevel:
+        description: "Log level"
+        required: true
+        default: "warning"
+      tags:
+        description: "Test scenario tags"
+
 
 jobs:
   docker-in-dockerhub:
