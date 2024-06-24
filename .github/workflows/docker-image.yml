@@ -1,8 +1,8 @@
-name: Docker Image CI For [test/test:latest]
+name: Docker Image CI For [thatyolanda/test:latest]
 
 on:
   push:
-    branches: [ "release/scheduler" ]
+    branches: [ "main" ]
 
 jobs:
   docker:
@@ -26,4 +26,4 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           push: true
-          tags: test/test:latest
+          tags: thatyolanda/test:latest
