@@ -28,9 +28,4 @@ jobs:
       - name: 'Build Inventory Image'
         run: |
           docker build . --tag ghcr.io/thatyolandawang/sampleproject:latest
-
-      - name: Artifact
-        uses: actions/upload-artifact@main
-        with:
-          name: windows
-          path: ${{ github.workspace }}/artifact/
+          docker push ghcr.io/thatyolandawang/sampleproject:latest
