@@ -1,4 +1,4 @@
-name: Docker Image CI For [thatyolanda/test:latest]
+name: Docker Image CI(github) For [thatyolanda/test:latest]
 
 on:
   workflow_dispatch:
